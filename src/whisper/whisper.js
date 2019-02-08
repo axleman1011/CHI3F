@@ -1,7 +1,7 @@
 var Discord = require('discord.io');
 var logger = require('winston');
 
-function whisper(Client, Args) {
+export function whisper(Client, Args) {
 	var listener = Args[0];
 	Args = Args.splice(1);
 
