@@ -19,7 +19,8 @@ A step by step series of examples that tell you how to get a development env run
 Add additional notes about how to deploy this on a live system
 
 ## Built With
-	discord.io 
+	discord.io
+	 
 	node.js?
 
 ## Contributing
@@ -30,6 +31,7 @@ An explanation of rules about contributing
 ## Authors
 
 [Vargus](https://github.com/axleman1011)
+
 [Ezzell](https://github.com/Cezzell) 
 
 ## License

@@ -1,7 +1,7 @@
 var Discord = require('discord.io');
 var logger = require('winston');
 var auth = require('./auth.json');
-var whisper = require('./whisper');
+var whisper = require('src/whisper');
 // Configure logger settings
 logger.remove(logger.transports.Console);
 logger.add(new logger.transports.Console, {
@@ -58,8 +58,8 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 			break;
             case 'whisper':
                 whisper.whisper({
-                    client : bot,
-                    options : args
+                    Client : bot,
+                    Args : args,
                 });
             break;
             // Add whatever we want here
