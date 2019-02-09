@@ -13,7 +13,7 @@ exports.whisper = function(Client, Listener, Message) {
 			if((listening.username).includes(Listener)) {
 				Client.sendMessage({
 					to: listening.id,
-					message: Message)
+					message: Message
 				});
 			}
 		}
