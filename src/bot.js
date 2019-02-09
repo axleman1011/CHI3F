@@ -61,7 +61,8 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             case 'whisper':
                 whisper.whisper({
                     Client : bot,
-                    Args : args,
+                    Listener : args[0],
+                    Message : args.splice(1).join(' ')
                 });
             break;
             // Add whatever we want here
