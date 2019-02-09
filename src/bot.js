@@ -68,6 +68,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     to: channelID,
                     message: 'I heard you... Meow :smiley_cat:'
                 });
+		logger.info(args[0]);
             break;
             // Add whatever we want here
          }
