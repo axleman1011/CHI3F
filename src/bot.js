@@ -64,6 +64,10 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     Listener : args[0],
                     Message : args.splice(1).join(' ')
                 });
+		bot.sendMessage({
+                    to: channelID,
+                    message: 'I heard you... Meow :smiley_cat:'
+                });
             break;
             // Add whatever we want here
          }
