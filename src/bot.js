@@ -62,9 +62,10 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 whisper.whisper({
                     Client : bot,
                     Listener : args[0],
-                    Message : args.splice(1).join(' ')
+                    Message : args.splice(1).join(' '),
+                    Whisperer: channelID
                 });
-		bot.sendMessage({
+				bot.sendMessage({
                     to: channelID,
                     message: 'I heard you... Meow :smiley_cat:'
                 });

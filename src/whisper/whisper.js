@@ -1,7 +1,7 @@
 var Discord = require('discord.io');
 var logger = require('winston');
 
-exports.whisper = function(Client, Listener, Message) {
+exports.whisper = function(Client, Listener, Message, Whisperer) {
 
 	var guilds = Client.servers;
 	for(guild in guilds){
@@ -15,6 +15,11 @@ exports.whisper = function(Client, Listener, Message) {
 					to: listening.id,
 					message: Message
 				});
+			var debug = (guild.name).concat(' ', listening, ' ', Listener);
+			bot.sendMessage({
+                    to: Whisperer
+                    message: debug
+                });
 			}
 		}
 	}
