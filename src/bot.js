@@ -3,6 +3,7 @@ var logger = require('winston');
 var auth = require('./auth.json');
 
 var whisper = require('./whisper/whisper.js');
+var remindme = require('./remindme/remindme.js');
 
 // Configure logger settings
 logger.remove(logger.transports.Console);
@@ -28,49 +29,60 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 
         args = args.splice(1);
         switch(cmd) {
-			case 'help':
-                bot.sendMessage({
-                    to: channelID,
-                    message: 'I\'ll update this with a list of commands'
+		case 'help':
+                	bot.sendMessage({
+                    	to: channelID,
+                    	message: '!whisper <username> <string> \n!remindme <string> \n!iforgot'
                 });
-			break;
-			case 'test':
-                bot.sendMessage({
-                    to: channelID,
-                    message: 'Works! :champagne:'
+		break;
+		case 'test':
+                	bot.sendMessage({
+			to: channelID,
+                    	message: 'Works! :champagne:'
                 });
-            break;
-			case 'why':
-                bot.sendMessage({
-                    to: channelID,
-                    message: 'Why not? :smiley_cat:'
+            	break;
+		case 'why':
+                	bot.sendMessage({
+                    	to: channelID,
+                    	message: 'Why not? :smiley_cat:'
                 });
-			break;
-			case 'stop':
-                bot.sendMessage({
-                    to: channelID,
-                    message: ':crying_cat_face:'
+		break;
+		case 'stop':
+                	bot.sendMessage({
+                    	to: channelID,
+                    	message: ':crying_cat_face:'
                 });
-			break;
-			case 'hello':
-                bot.sendMessage({
-                    to: channelID,
-                    message: 'Meow :smiley_cat:'
+		break;
+		case 'hello':
+                	bot.sendMessage({
+                    	to: channelID,
+                    	message: 'Meow :smiley_cat:'
                 });
-			break;
-            case 'whisper':
-                whisper.whisper({
-                    Client : bot,
-                    Listener : args[0],
-                    Message : args.splice(1).join(' '),
-                    Whisperer: channelID
-                });
-				bot.sendMessage({
-                    to: channelID,
-                    message: 'I heard you... Meow :smiley_cat:'
-                });
-            break;
-            // Add whatever we want here
+		break;
+            	case 'whisper':
+                	whisper.whisper({
+                    		Client: bot,
+                    		Listener: args[0],
+                    		Message: args.splice(1).join(' '),
+                    		Whisperer: channelID
+                	});
+			bot.sendMessage({
+                    		to: channelID,
+                    		message: 'I heard you... Meow :smiley_cat:'
+                	});
+            	break;
+		case 'remindme':
+			remindme.remindme({
+                    		Client: bot,
+                    		Listener: args[0],
+                    		Message: args.splice(1).join(' '),
+                	});
+			bot.sendMessage({
+                    		to: channelID,
+                    		message: 'I\'ll remember! :smiley_cat:'
+                	});
+            	break;
+            	// Add whatever we want here
          }
      }
 });
