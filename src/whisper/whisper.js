@@ -15,7 +15,9 @@ exports.whisper = function(Client, Listener, Message, Whisperer) {
 					to: listening.id,
 					message: Message
 				});
-			var debug = (guild.name).concat(' ', listening.username, ' ', Listener);
+			var debug = (guild.name).concat(' ', listening.username, ' ', Listener, ' ', Whisperer);
+
+			logger.info(debug);
 			Client.sendMessage({
                 to: Whisperer,
                 message: debug
