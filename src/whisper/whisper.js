@@ -16,10 +16,10 @@ exports.whisper = function(Client, Listener, Message, Whisperer) {
 					message: Message
 				});
 			var debug = (guild.name).concat(' ', listening.username, ' ', Listener);
-			bot.sendMessage({
-                    to: Whisperer
-                    message: debug
-                });
+			Client.sendMessage({
+                to: Whisperer,
+                message: debug
+            });
 			}
 		}
 	}
