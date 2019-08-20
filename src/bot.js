@@ -82,6 +82,14 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                     		message: 'I\'ll remember! :smiley_cat:'
                 	});
             	break;
+		case 'dishwasher':
+			//Call dishwasher.js
+			//return with NAME and TIME
+                	bot.sendMessage({
+                    	to: channelID,
+                    	message: 'The dishwasher will be done at [TIME], it\'s [NAME]\'s turn to empty it.'
+                });
+		break;
             	// Add whatever we want here
          }
      }
